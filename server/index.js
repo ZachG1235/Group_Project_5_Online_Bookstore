@@ -2,15 +2,17 @@ import express from "express";
 import bodyParser from "body-parser";
 import pg from "pg";
 import session from 'express-session';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const port = 5000;
 const db = new pg.Client({
-    host: 'localhost',
-    port: 5432,
-    user: 'postgres',
-    password: 'mypword',
-    database: 'BlogDB',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 5432,
+    user: process.env.DB_USER || 'postgres',
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME || 'BookDB',
 });
 db.connect();
 
