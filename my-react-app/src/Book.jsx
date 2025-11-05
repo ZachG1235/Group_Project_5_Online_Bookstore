@@ -33,14 +33,16 @@ function Book(props) {
   // check if blogs is not empty
   if (props.book != null) {
     return (
-      <div className="col-md-4">
-        <div className="card">
-        <img src="/book.jpg" className="card-img-top" alt="..." />
+      <div className="col">
+        <div className="book-card">
+          <img src="/book.jpg" className="card-img-top" alt="..." />
 
         <div className="card-body">
-    <h5 className="card-title">{props.book["bookTitle"]}</h5>
-          <p className="card-text">{props.book["bookDesc"]}</p>
-          <a href="#" className="btn btn-primary">Read More</a>
+          <h5 className="card-title">{props.book["bookTitle"]}</h5>
+          <p className="card-text">{props.book["bookAuthor"]}</p>
+          <p>{props.book["bookRating"]} Stars</p>
+          
+          
         </div>
         </div>
       </div>

@@ -5,8 +5,8 @@ function BookList(props) {
     // check if books is not empty
     if (props.books != null) {
         return (
-            <div class="container mt-4">
-              <div class="row">
+            <div className="container mt-4">
+              <div className="row row-cols-7 g-3">
                 {props.books.map(book => (
                     <Book 
                     key={book.bookId} 
