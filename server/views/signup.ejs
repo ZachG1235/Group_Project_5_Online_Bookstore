@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+    <title>CS-312-MiniProject-3</title>
+</head>
+<body>
+    <div class="d-flex justify-content-around align-items-center">
+        <a href="/"><button class="btn btn-primary">HOME</button></a>
+        <h1>
+            Signup!
+        </h1>
+        <div>
+            <a href="/login"><button class="btn btn-primary">LOGIN?</button></a>
+        </div>
+    </div>
+    <div class="blogForm">
+        <form action="/signup" method="post">
+            <div class="mb-3">
+                <label class="form-label formLabel">ID:</label>
+                <input class="form-control" type="text" name="userID" placeholder="Your ID?" required>
+                <%# Check for invalid user id %>
+                <% if (locals.invalidID) { %>
+                <p style="color: red;">USER ID INVALID, PLEASE TRY ANOTHER</p>
+                <% } %>
+            </div>
+            <div class="mb-3">
+                <label class="form-label formLabel">Name:</label>
+                <input class="form-control" type="text" name="bloggerName" placeholder="Your name?" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label formLabel">Password:</label>
+                <input class="form-control" type="text" name="password" placeholder="Your password?" required>
+            </div>
+            <input class="btn btn-primary" type="submit">
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+</html>
