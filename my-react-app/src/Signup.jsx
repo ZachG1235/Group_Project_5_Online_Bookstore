@@ -12,8 +12,8 @@ function Signup(props) {
         // collect the data from the form as jsonData
         const data = new FormData(event.target);
         const jsonData = {
-            userID: data.get('userID'),
-            bloggerName: data.get('name'),
+            username: data.get('userID'),
+            displayName: data.get('displayName'),
             password: data.get('password'),
         };
 
@@ -43,17 +43,17 @@ function Signup(props) {
         <div class="blogForm">
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
-                    <label class="form-label formLabel">ID:</label>
-                    <input class="form-control" type="text" name="userID" placeholder="Your ID?" required/>
+                    <label class="form-label formLabel">Username:</label>
+                    <input class="form-control" type="text" name="userID" placeholder="Please enter your username" required/>
                 </div>
                 <p style={{color: "red"}}>{error}</p>
                 <div class="mb-3">
-                    <label class="form-label formLabel">Name:</label>
-                    <input class="form-control" type="text" name="name" placeholder="Your name?" required/>
+                    <label class="form-label formLabel">Display Name:</label>
+                    <input class="form-control" type="text" name="displayName" placeholder="Please enter your display name" required/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label formLabel">Password:</label>
-                    <input class="form-control" type="text" name="password" placeholder="Your password?" required/>
+                    <input class="form-control" type="text" name="password" placeholder="Please enter your your password" required/>
                 </div>
                 <input class="btn btn-primary" type="submit"/>
                 <br/>

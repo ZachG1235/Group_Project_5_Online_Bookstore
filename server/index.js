@@ -126,10 +126,10 @@ app.post("/api/editBlog", async (req, res) => {
 
 app.post("/api/signin", async (req, res) => {
     // search for user in db
-    const query = "SELECT * FROM users WHERE user_id = $1 AND password = $2";
+    const query = "SELECT * FROM users WHERE username = $1 AND password = $2";
 
     const result = await db.query(query,
-                    [req.body.userID, req.body.password]);
+                    [req.body.username, req.body.password]);
 
     if (result.rowCount > 0)
     {
@@ -147,11 +147,11 @@ app.post("/api/signin", async (req, res) => {
 
 app.post("/api/signup", async (req, res) => {
     // try to insert user into db
-    const query = "INSERT INTO users (user_id, password, name) VALUES ($1, $2, $3)";
+    const query = "INSERT INTO users (username, displayname, password) VALUES ($1, $2, $3)";
 
     try {
         const result = await db.query(query,
-                        [req.body.userID, req.body.password, req.body.bloggerName]);
+                        [req.body.username, req.body.displayName, req.body.password]);
 
         // return success error
         res.json({ success: true } );

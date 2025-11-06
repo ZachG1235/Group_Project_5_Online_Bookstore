@@ -12,7 +12,7 @@ function Signin(props) {
         // collect the data from the form as jsonData
         const data = new FormData(event.target);
         const jsonData = {
-            userID: data.get('userID'),
+            username: data.get('username'),
             password: data.get('password'),
         };
 
@@ -43,12 +43,12 @@ function Signin(props) {
         <div class="blogForm">
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
-                    <label class="form-label formLabel">ID:</label>
-                    <input class="form-control" type="text" name="userID" placeholder="Your ID?" required/>
+                    <label class="form-label formLabel">Username:</label>
+                    <input class="form-control" type="text" name="username" placeholder="Please enter your username" required/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label formLabel">Password:</label>
-                    <input class="form-control" type="text" name="password" placeholder="Your password?" required/>
+                    <input class="form-control" type="text" name="password" placeholder="Please enter your password" required/>
                 </div>
                 
                 <p style={{color: "red"}}>{error}</p>
