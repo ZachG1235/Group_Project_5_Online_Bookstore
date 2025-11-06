@@ -40,22 +40,28 @@ function Signup(props) {
     };
 
     return (
-        <div class="blogForm">
+        <div class="blogForm card text-center card-body cust-max-screen-width-600">
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
-                    <label class="form-label formLabel">Username:</label>
+                    <div class="text-start">
+                      <label class="form-label formLabel"><b>Username</b></label>
+                    </div>
                     <input class="form-control" type="text" name="userID" placeholder="Please enter your username" required/>
                 </div>
-                <p style={{color: "red"}}>{error}</p>
                 <div class="mb-3">
-                    <label class="form-label formLabel">Display Name:</label>
+                    <div class="text-start">
+                      <label class="form-label formLabel"><b>Password</b></label>
+                    </div>
+                    <input class="form-control" type="password" name="password" placeholder="Please enter your password" required/>
+                </div>
+                <div class="mb-3">
+                    <div class="text-start">
+                      <label class="form-label formLabel"><b>Display Name</b></label>
+                    </div>
                     <input class="form-control" type="text" name="displayName" placeholder="Please enter your display name" required/>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label formLabel">Password:</label>
-                    <input class="form-control" type="text" name="password" placeholder="Please enter your your password" required/>
-                </div>
-                <input class="btn btn-primary" type="submit"/>
+                <p style={{color: "red"}}>{error}</p>
+                <input class="btn btn-dark w-100 my-2" type="submit" value="Sign Up"/>
                 <br/>
                 <br/>
             </form>

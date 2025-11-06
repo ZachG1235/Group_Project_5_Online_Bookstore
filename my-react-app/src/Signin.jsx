@@ -55,7 +55,6 @@ function Signin(props) {
                     </div>
                     <input className="form-control" type="text" name="password" placeholder="Please enter your password" required/>
                 </div>
-                
                 <p style={{color: "red"}}>{error}</p>
                 <input className="btn btn-dark w-100 my-2" type="submit" value="Login"/>
                 </div>
