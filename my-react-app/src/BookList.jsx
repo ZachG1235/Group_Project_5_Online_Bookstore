@@ -21,8 +21,12 @@ function BookList(props) {
     }
   };
 
-  const handleFilter = () => {
-    
+  const handleFilter = (event) => {
+    // check which filter button was clicked
+    if (event.target.value === "genre") {
+      const filterBooks = [...props.books].filter(book => book["bookGenre"].includes(event.target.innerText));
+      props.setBooks(filterBooks);
+    }
   };
 
   // check if books is not empty
@@ -40,7 +44,7 @@ function BookList(props) {
                 </div>
                 <label className="form-label">Filter by:</label>
                 <div className="d-flex flex-column">
-                  <button onClick={handleFilter} className='btn btn-link'value="reset">Reset</button>
+                  <button onClick={handleFilter} className='btn btn-link'value="genre">Classic</button>
                 </div>
               </aside>
                 <main className="col-md-10 col-lg-10">
