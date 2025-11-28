@@ -6,6 +6,10 @@ h1 {
     color: black;
 }
 
+.filter {
+    text-decoration: none;
+    color: black;
+}
 .blogForm {
     width: 80%;
     margin: 0 auto;

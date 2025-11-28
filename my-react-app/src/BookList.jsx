@@ -24,8 +24,11 @@ function BookList(props) {
   const handleFilter = (event) => {
     // check which filter button was clicked
     if (event.target.value === "genre") {
-      const filterBooks = [...props.books].filter(book => book["bookGenre"].includes(event.target.innerText));
+      const filterBooks = [...props.originalBooks].filter(book => book["bookGenre"].includes(event.target.innerText));
       props.setBooks(filterBooks);
+    }
+    else if (event.target.value === "clear") {
+      props.setBooks(props.originalBooks);
     }
   };
 
@@ -44,7 +47,16 @@ function BookList(props) {
                 </div>
                 <label className="form-label">Filter by:</label>
                 <div className="d-flex flex-column">
-                  <button onClick={handleFilter} className='btn btn-link'value="genre">Classic</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Classic</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Dystopian</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Historical Fiction</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Fantasy</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Romance</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Adventure</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Coming-of-Age</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Science Fiction</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Gothic Fiction</button>
+                  <button onClick={handleFilter} className='btn btn-link filter' value="genre">Philosophical Fiction</button>
                 </div>
               </aside>
                 <main className="col-md-10 col-lg-10">
