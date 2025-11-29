@@ -10,6 +10,8 @@ import CreateReview from "./CreateReview.jsx"
 
 function App() {
   const [user, setUser] = useState([])
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     fetch("/api/user").then(
         response => response.json()).then(data => {
@@ -19,9 +21,9 @@ function App() {
     }, [])
   return (
     <div>
-      <Header user={user} setUser={setUser}/>
+      <Header user={user} setUser={setUser} setSearch={setSearch}/>
       <Routes>
-        <Route path="/" element={<Home user={user}/>}/>
+        <Route path="/" element={<Home user={user} search={search}/>}/>
         <Route path="/signup" element={<Signup />}/>
         <Route path="/signin" element={<Signin setUser={setUser}/>}/>
         <Route path="/edit" element={<Edit/>}/>
