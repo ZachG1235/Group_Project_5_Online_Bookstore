@@ -4,6 +4,7 @@ import Book from './Book'
 function BookList(props) {
   const [activeSort, setActiveSort] = useState(null);
   const [activeFilter, setActiveFilter] = useState(null);
+  const [activeStarFilter, setActiveStarFilter] = useState(null);
   const handleSort = (event) => {
     // check which sort button was clicked
     if (event.target.value === "name") {
@@ -36,7 +37,18 @@ function BookList(props) {
     else if (event.target.value === "clear") {
       setActiveSort("");
       setActiveFilter("");
+      setActiveStarFilter("");
       props.setBooks(props.originalBooks);
+    }
+  };
+
+  const handleStarFilter = (event) => {
+    // check which filter button was clicked
+    if (event.target.value.startsWith("star")) {
+      const starNum = Number(event.target.value.split("-")[1]);
+      const filterBooks = [...props.originalBooks].filter(book => book.bookRating >= starNum && book.bookRating < starNum+1);
+      setActiveStarFilter(event.target.value);
+      props.setBooks(filterBooks);
     }
   };
 
@@ -83,6 +95,16 @@ function BookList(props) {
                   <button onClick={handleFilter} className={`btn filter ${activeFilter === "genre-scifi" ? "btn-outline-success" : "btn-link"}`} value="genre-scifi">Science Fiction</button>
                   <button onClick={handleFilter} className={`btn filter ${activeFilter === "genre-goth-fict" ? "btn-outline-success" : "btn-link"}`} value="genre-goth-fict">Gothic Fiction</button>
                   <button onClick={handleFilter} className={`btn filter ${activeFilter === "genre-phil-fict" ? "btn-outline-success" : "btn-link"}`} value="genre-phil-fict">Philosophical Fiction</button>
+                </div>
+                <div className="d-flex flex-column">
+                  <label className="form-label">Filter by Stars:</label>
+                  <button onClick={handleStarFilter} className={`btn ${activeStarFilter === "star-1" ? "btn-dark" : "btn-outline-secondary"}`} value="star-1">1</button>
+                  <button onClick={handleStarFilter} className={`btn ${activeStarFilter === "star-2" ? "btn-dark" : "btn-outline-secondary"}`} value="star-2">2</button>
+                  <button onClick={handleStarFilter} className={`btn ${activeStarFilter === "star-3" ? "btn-dark" : "btn-outline-secondary"}`} value="star-3">3</button>
+                  <button onClick={handleStarFilter} className={`btn ${activeStarFilter === "star-4" ? "btn-dark" : "btn-outline-secondary"}`} value="star-4">4</button>
+                  <button onClick={handleStarFilter} className={`btn ${activeStarFilter === "star-5" ? "btn-dark" : "btn-outline-secondary"}`} value="star-5">5</button>
+                </div>
+                <div>
                   <button onClick={handleFilter} className='btn btn-outline-secondary filter my-5' value="clear">Clear Filters</button>
                 </div>
               </aside>
